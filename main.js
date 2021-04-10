@@ -16,6 +16,7 @@ const TEXTFIELD_xws = new mdc.textField.MDCTextField(document.querySelector('.md
 const TEXTFIELD_yws = new mdc.textField.MDCTextField(document.querySelector('.mdc-text-field#tf_yws'));
 const TEXTFIELD_nw = new mdc.textField.MDCTextField(document.querySelector('.mdc-text-field#tf_nw'));
 const TEXTFIELD_np = new mdc.textField.MDCTextField(document.querySelector('.mdc-text-field#tf_np'));
+const TEXTFIELD_Fxy_hint = document.querySelector('#tf_fxy_hint');
 const BUTTON_restart = new mdc.ripple.MDCRipple(document.querySelector('.mdc-button#btn_restart'));
 const BUTTON_download = new mdc.ripple.MDCRipple(document.querySelector('.mdc-button#btn_download'));
 const LINEAR_PROGRESS = new mdc.linearProgress.MDCLinearProgress(document.querySelector('.mdc-linear-progress'));
@@ -143,7 +144,12 @@ function call_workers() {
     worker.addEventListener('message', (event) => {
       const response = JSON.parse(event.data);
       if (response.err) {
-        console.error(response.err);
+        TEXTFIELD_Fxy.root.classList.add('mdc-text-field--invalid');
+        TEXTFIELD_Fxy_hint.style.display = 'flex';
+        return;
+      } else {
+        TEXTFIELD_Fxy.root.classList.remove('mdc-text-field--invalid');
+        TEXTFIELD_Fxy_hint.style.display = 'none';
       }
       draw(worker, response.result);
     });
@@ -158,6 +164,7 @@ async function main() {
   ctx.fillStyle = "#fff";
   ctx.fillRect(-WIDTH / 2, -HEIGHT / 2, WIDTH, HEIGHT);
   points = 0;
+  LINEAR_PROGRESS.progress = points / TOTAL;
   drawGrid();
   request = {
     domain: DOMAIN,

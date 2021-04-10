@@ -42,85 +42,94 @@
             <aside class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6 mdc-layout-grid__cell--span-12-tablet">
                 <div role="progressbar" class="mdc-linear-progress" aria-label="Example Progress Bar" aria-valuemin="0" aria-valuemax="1" aria-valuenow="0">
                     <div class="mdc-linear-progress__buffer">
-                      <div class="mdc-linear-progress__buffer-bar"></div>
-                      <div class="mdc-linear-progress__buffer-dots"></div>
+                        <div class="mdc-linear-progress__buffer-bar"></div>
+                        <div class="mdc-linear-progress__buffer-dots"></div>
                     </div>
                     <div class="mdc-linear-progress__bar mdc-linear-progress__primary-bar">
-                      <span class="mdc-linear-progress__bar-inner"></span>
+                        <span class="mdc-linear-progress__bar-inner"></span>
                     </div>
                     <div class="mdc-linear-progress__bar mdc-linear-progress__secondary-bar">
-                      <span class="mdc-linear-progress__bar-inner"></span>
+                        <span class="mdc-linear-progress__bar-inner"></span>
                     </div>
-                  </div>
+                </div>
                 <p>This website uses random numbers to approximate the domain of any function of two variables.</p>
-                <label id="tf_fxy" class="mdc-text-field mdc-text-field--outlined">
-                    <span class="mdc-notched-outline">
-                        <span class="mdc-notched-outline__leading"></span>
-                        <span class="mdc-notched-outline__notch">
-                            <span class="mdc-floating-label" id="fxy">f(x,y)</span>
+                <div class="text-field-group">
+                    <label id="tf_fxy" class="mdc-text-field mdc-text-field--outlined">
+                        <span class="mdc-notched-outline">
+                            <span class="mdc-notched-outline__leading"></span>
+                            <span class="mdc-notched-outline__notch">
+                                <span class="mdc-floating-label" id="fxy">f(x,y)</span>
+                            </span>
+                            <span class="mdc-notched-outline__trailing"></span>
                         </span>
-                        <span class="mdc-notched-outline__trailing"></span>
-                    </span>
-                    <input type="text" class="mdc-text-field__input" aria-labelledby="fxy" value="2 * sqrt(sin(pi * (x^2 + y^2))) + sqrt(log(y))">
-                </label>
-                <br>
-                <label id="tf_xws"class="mdc-text-field mdc-text-field--outlined">
-                    <span class="mdc-notched-outline">
-                        <span class="mdc-notched-outline__leading"></span>
-                        <span class="mdc-notched-outline__notch">
-                            <span class="mdc-floating-label" id="my-label-id">X Window Size</span>
+                        <input type="text" class="mdc-text-field__input" aria-labelledby="fxy" value="2 * sqrt(sin(pi * (x^2 + y^2))) + sqrt(log(y))">
+                    </label>
+                    <div id="tf_fxy_hint" class="mdc-text-field-helper-line" style="display: none;">
+                        <p class="mdc-text-field-helper-text mdc-text-field-helper-text--persistent mdc-text-field-helper-text--validation-msg">
+                            Error parsing function. <a href="//mathjs.org/docs/expressions/syntax.html" target="_blank">More details</a>.
+                        </p>
+                    </div>
+                </div>
+                <div class="text-field-group">
+                    <label id="tf_xws" class="mdc-text-field mdc-text-field--outlined">
+                        <span class="mdc-notched-outline">
+                            <span class="mdc-notched-outline__leading"></span>
+                            <span class="mdc-notched-outline__notch">
+                                <span class="mdc-floating-label" id="my-label-id">X Window Size</span>
+                            </span>
+                            <span class="mdc-notched-outline__trailing"></span>
                         </span>
-                        <span class="mdc-notched-outline__trailing"></span>
-                    </span>
-                    <input type="text" class="mdc-text-field__input" aria-labelledby="my-label-id">
-                </label>
-                <br>
-                <label id="tf_yws" class="mdc-text-field mdc-text-field--outlined">
-                    <span class="mdc-notched-outline">
-                        <span class="mdc-notched-outline__leading"></span>
-                        <span class="mdc-notched-outline__notch">
-                            <span class="mdc-floating-label" id="my-label-id">Y Window Size</span>
+                        <input type="text" class="mdc-text-field__input" aria-labelledby="my-label-id">
+                    </label>
+                    <label id="tf_yws" class="mdc-text-field mdc-text-field--outlined">
+                        <span class="mdc-notched-outline">
+                            <span class="mdc-notched-outline__leading"></span>
+                            <span class="mdc-notched-outline__notch">
+                                <span class="mdc-floating-label" id="my-label-id">Y Window Size</span>
+                            </span>
+                            <span class="mdc-notched-outline__trailing"></span>
                         </span>
-                        <span class="mdc-notched-outline__trailing"></span>
-                    </span>
-                    <input type="text" class="mdc-text-field__input" aria-labelledby="my-label-id">
-                </label>
-                <label id="tf_nw" class="mdc-text-field mdc-text-field--outlined">
-                    <span class="mdc-notched-outline">
-                        <span class="mdc-notched-outline__leading"></span>
-                        <span class="mdc-notched-outline__notch">
-                            <span class="mdc-floating-label" id="my-label-id">Number of Workers</span>
+                        <input type="text" class="mdc-text-field__input" aria-labelledby="my-label-id">
+                    </label>
+                </div>
+                <div class="text-field-group">
+                    <label id="tf_nw" class="mdc-text-field mdc-text-field--outlined">
+                        <span class="mdc-notched-outline">
+                            <span class="mdc-notched-outline__leading"></span>
+                            <span class="mdc-notched-outline__notch">
+                                <span class="mdc-floating-label" id="my-label-id">Number of Workers</span>
+                            </span>
+                            <span class="mdc-notched-outline__trailing"></span>
                         </span>
-                        <span class="mdc-notched-outline__trailing"></span>
-                    </span>
-                    <input type="text" class="mdc-text-field__input" aria-labelledby="my-label-id">
-                </label>
-                <label id="tf_np" class="mdc-text-field mdc-text-field--outlined">
-                    <span class="mdc-notched-outline">
-                        <span class="mdc-notched-outline__leading"></span>
-                        <span class="mdc-notched-outline__notch">
-                            <span class="mdc-floating-label" id="my-label-id">Number of Points</span>
+                        <input type="text" class="mdc-text-field__input" aria-labelledby="my-label-id">
+                    </label>
+                    <label id="tf_np" class="mdc-text-field mdc-text-field--outlined">
+                        <span class="mdc-notched-outline">
+                            <span class="mdc-notched-outline__leading"></span>
+                            <span class="mdc-notched-outline__notch">
+                                <span class="mdc-floating-label" id="my-label-id">Number of Points</span>
+                            </span>
+                            <span class="mdc-notched-outline__trailing"></span>
                         </span>
-                        <span class="mdc-notched-outline__trailing"></span>
-                    </span>
-                    <input type="text" class="mdc-text-field__input" aria-labelledby="my-label-id">
-                </label>
+                        <input type="text" class="mdc-text-field__input" aria-labelledby="my-label-id">
+                    </label>
+                </div>
                 <div class="mdc-touch-target-wrapper">
                     <button id="btn_restart" class="mdc-button mdc-button--raised mdc-button--touch">
-                      <span class="mdc-button__ripple"></span>
-                      <i class="material-icons mdc-button__icon" aria-hidden="true">restart_alt</i>
-                      <span class="mdc-button__label">Restart</span>
-                      <span class="mdc-button__touch"></span>
+                        <span class="mdc-button__ripple"></span>
+                        <i class="material-icons mdc-button__icon" aria-hidden="true">restart_alt</i>
+                        <span class="mdc-button__label">Restart</span>
+                        <span class="mdc-button__touch"></span>
                     </button>
-                  </div>
+                </div>
                 <div class="mdc-touch-target-wrapper">
                     <button id="btn_download" class="mdc-button mdc-button--outlined mdc-button--touch">
-                      <span class="mdc-button__ripple"></span>
-                      <i class="material-icons mdc-button__icon" aria-hidden="true">download</i>
-                      <span class="mdc-button__label">Download</span>
-                      <span class="mdc-button__touch"></span>
+                        <span class="mdc-button__ripple"></span>
+                        <i class="material-icons mdc-button__icon" aria-hidden="true">download</i>
+                        <span class="mdc-button__label">Download</span>
+                        <span class="mdc-button__touch"></span>
                     </button>
-                  </div>
+                </div>
             </aside>
         </div>
     </div>

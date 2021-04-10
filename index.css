@@ -23,7 +23,15 @@ aside {
   padding-top: var(--mdc-layout-grid-margin-desktop, 24px);
 }
 
-.mdc-text-field {
+.text-field-group {
   width: 100%;
   margin-bottom: var(--mdc-layout-grid-margin-desktop, 24px);
+}
+
+.text-field-group .mdc-text-field {
+  margin-right: var(--mdc-layout-grid-margin-desktop, 24px);
+}
+
+#tf_fxy {
+  width: 100%;
 }

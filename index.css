@@ -1,0 +1,29 @@
+:root {
+  --mdc-theme-primary: #333;
+  --mdc-theme-secondary: green;
+}
+
+body {
+  display: flex;
+  margin: 0;
+  font-family: 'Roboto';
+}
+
+canvas {
+  width: min(100%, 100vh - 112px);
+  height: min(100%, 100vh - 112px);
+  padding-top: var(--mdc-layout-grid-margin-desktop, 24px);
+}
+
+canvas::after {
+  padding-bottom: 100%;
+}
+
+aside {
+  padding-top: var(--mdc-layout-grid-margin-desktop, 24px);
+}
+
+.mdc-text-field {
+  width: 100%;
+  margin-bottom: var(--mdc-layout-grid-margin-desktop, 24px);
+}

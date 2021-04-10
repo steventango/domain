@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monte Carlo Approximation of the Domain of Functions of 2 Variables</title>
+    <link href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./index.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons|Roboto|Roboto+Mono">
+</head>
+
+<body>
+    <header class="mdc-top-app-bar">
+        <div class="mdc-top-app-bar__row">
+            <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
+                <button class="material-icons mdc-top-app-bar__navigation-icon mdc-icon-button" aria-label="RL Pong">lens</button>
+                <span class="mdc-top-app-bar__title">Monte Carlo Approximation of the Domain of Functions of 2 Variables</span>
+            </section>
+            <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-end" role="toolbar">
+                <a href="/" target="_blank">
+                    <button class="material-icons mdc-top-app-bar__action-item mdc-icon-button" aria-label="Search">
+                        <object data="/assets/icon.svg" type="image/svg+xml"></object>
+                    </button>
+                </a>
+                <a href="https://github.com/steventango/domain" target="_blank">
+                    <button class="material-icons mdc-top-app-bar__action-item mdc-icon-button" aria-label="Github">
+                        <svg role="img" viewBox="0 0 24 24">
+                            <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"></path>
+                        </svg>
+                    </button>
+                </a>
+            </section>
+        </div>
+    </header>
+    <div class="mdc-layout-grid mdc-top-app-bar--fixed-adjust mdc-layout-grid--align-left">
+        <div class="mdc-layout-grid__inner">
+            <div class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6 mdc-layout-grid__cell--span-12-tablet">
+                <canvas></canvas>
+            </div>
+            <aside class="mdc-layout-grid__cell mdc-layout-grid__cell--span-6 mdc-layout-grid__cell--span-12-tablet">
+                <div role="progressbar" class="mdc-linear-progress" aria-label="Example Progress Bar" aria-valuemin="0" aria-valuemax="1" aria-valuenow="0">
+                    <div class="mdc-linear-progress__buffer">
+                      <div class="mdc-linear-progress__buffer-bar"></div>
+                      <div class="mdc-linear-progress__buffer-dots"></div>
+                    </div>
+                    <div class="mdc-linear-progress__bar mdc-linear-progress__primary-bar">
+                      <span class="mdc-linear-progress__bar-inner"></span>
+                    </div>
+                    <div class="mdc-linear-progress__bar mdc-linear-progress__secondary-bar">
+                      <span class="mdc-linear-progress__bar-inner"></span>
+                    </div>
+                  </div>
+                <p>This website uses random numbers to approximate the domain of any function of two variables.</p>
+                <label id="tf_fxy" class="mdc-text-field mdc-text-field--outlined">
+                    <span class="mdc-notched-outline">
+                        <span class="mdc-notched-outline__leading"></span>
+                        <span class="mdc-notched-outline__notch">
+                            <span class="mdc-floating-label" id="fxy">f(x,y)</span>
+                        </span>
+                        <span class="mdc-notched-outline__trailing"></span>
+                    </span>
+                    <input type="text" class="mdc-text-field__input" aria-labelledby="fxy" value="2 * sqrt(sin(pi * (x^2 + y^2))) + sqrt(log(y))">
+                </label>
+                <br>
+                <label id="tf_xws"class="mdc-text-field mdc-text-field--outlined">
+                    <span class="mdc-notched-outline">
+                        <span class="mdc-notched-outline__leading"></span>
+                        <span class="mdc-notched-outline__notch">
+                            <span class="mdc-floating-label" id="my-label-id">X Window Size</span>
+                        </span>
+                        <span class="mdc-notched-outline__trailing"></span>
+                    </span>
+                    <input type="text" class="mdc-text-field__input" aria-labelledby="my-label-id">
+                </label>
+                <br>
+                <label id="tf_yws" class="mdc-text-field mdc-text-field--outlined">
+                    <span class="mdc-notched-outline">
+                        <span class="mdc-notched-outline__leading"></span>
+                        <span class="mdc-notched-outline__notch">
+                            <span class="mdc-floating-label" id="my-label-id">Y Window Size</span>
+                        </span>
+                        <span class="mdc-notched-outline__trailing"></span>
+                    </span>
+                    <input type="text" class="mdc-text-field__input" aria-labelledby="my-label-id">
+                </label>
+                <label id="tf_nw" class="mdc-text-field mdc-text-field--outlined">
+                    <span class="mdc-notched-outline">
+                        <span class="mdc-notched-outline__leading"></span>
+                        <span class="mdc-notched-outline__notch">
+                            <span class="mdc-floating-label" id="my-label-id">Number of Workers</span>
+                        </span>
+                        <span class="mdc-notched-outline__trailing"></span>
+                    </span>
+                    <input type="text" class="mdc-text-field__input" aria-labelledby="my-label-id">
+                </label>
+                <label id="tf_np" class="mdc-text-field mdc-text-field--outlined">
+                    <span class="mdc-notched-outline">
+                        <span class="mdc-notched-outline__leading"></span>
+                        <span class="mdc-notched-outline__notch">
+                            <span class="mdc-floating-label" id="my-label-id">Number of Points</span>
+                        </span>
+                        <span class="mdc-notched-outline__trailing"></span>
+                    </span>
+                    <input type="text" class="mdc-text-field__input" aria-labelledby="my-label-id">
+                </label>
+                <div class="mdc-touch-target-wrapper">
+                    <button id="btn_restart" class="mdc-button mdc-button--raised mdc-button--touch">
+                      <span class="mdc-button__ripple"></span>
+                      <i class="material-icons mdc-button__icon" aria-hidden="true">restart_alt</i>
+                      <span class="mdc-button__label">Restart</span>
+                      <span class="mdc-button__touch"></span>
+                    </button>
+                  </div>
+                <div class="mdc-touch-target-wrapper">
+                    <button id="btn_download" class="mdc-button mdc-button--outlined mdc-button--touch">
+                      <span class="mdc-button__ripple"></span>
+                      <i class="material-icons mdc-button__icon" aria-hidden="true">download</i>
+                      <span class="mdc-button__label">Download</span>
+                      <span class="mdc-button__touch"></span>
+                    </button>
+                  </div>
+            </aside>
+        </div>
+    </div>
+    <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+    <script src="./main.js"></script>
+</body>
+
+</html>

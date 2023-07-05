@@ -34,10 +34,10 @@ let points;
 let request;
 let f;
 
-TEXTFIELD_Fxy.input_.addEventListener('change', updatef);
+TEXTFIELD_Fxy.input.addEventListener('change', updatef);
 
 TEXTFIELD_xws.value = DOMAIN;
-TEXTFIELD_xws.input_.addEventListener('change', () => {
+TEXTFIELD_xws.input.addEventListener('change', () => {
   TEXTFIELD_xws.value = Math.max(TEXTFIELD_xws.value, 1);
   DOMAIN = TEXTFIELD_xws.value;
   XSCALE = WIDTH / DOMAIN;
@@ -46,7 +46,7 @@ TEXTFIELD_xws.input_.addEventListener('change', () => {
 });
 
 TEXTFIELD_yws.value = RANGE;
-TEXTFIELD_yws.input_.addEventListener('change', () => {
+TEXTFIELD_yws.input.addEventListener('change', () => {
   TEXTFIELD_yws.value = Math.max(TEXTFIELD_yws.value, 1);
   RANGE = TEXTFIELD_yws.value;
   YSCALE = HEIGHT / RANGE;
@@ -54,14 +54,14 @@ TEXTFIELD_yws.input_.addEventListener('change', () => {
 });
 
 TEXTFIELD_nw.value = N_WORKERS;
-TEXTFIELD_nw.input_.addEventListener('change', () => {
+TEXTFIELD_nw.input.addEventListener('change', () => {
   TEXTFIELD_nw.value = Math.max(Math.min(TEXTFIELD_nw.value, navigator.hardwareConcurrency), 1);
   N_WORKERS = TEXTFIELD_nw.value;
   main();
 });
 
 TEXTFIELD_np.value = TOTAL;
-TEXTFIELD_np.input_.addEventListener('change', () => {
+TEXTFIELD_np.input.addEventListener('change', () => {
   TEXTFIELD_np.value = Math.max(TEXTFIELD_np.value, 0);
   TOTAL = TEXTFIELD_np.value;
   main();
